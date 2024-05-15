@@ -67,6 +67,7 @@
             app:fontFamily="@font/inder_regular"
             android:textColor="#534F4F"/>
         <com.google.android.material.textfield.TextInputLayout
+            app:passwordToggleEnabled="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
