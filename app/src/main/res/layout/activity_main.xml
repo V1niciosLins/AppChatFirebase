@@ -10,7 +10,6 @@
     <ImageView
         android:layout_width="200dp"
         android:layout_height="180dp"
-        android:contentDescription=""
         android:src="@drawable/img"
         app:layout_constraintBottom_toTopOf="@+id/materialTextView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,6 +17,7 @@
         app:layout_constraintHorizontal_bias=".8"/>
 
     <com.google.android.material.textview.MaterialTextView
+        app:fontFamily="@font/inder_regular"
         app:layout_constraintVertical_bias=".4"
         android:id="@+id/materialTextView"
         android:layout_width="match_parent"
@@ -31,4 +31,76 @@
         android:textColor="@color/black"
         android:textAlignment="center"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/materialTextView"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="46dp">
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            app:fontFamily="@font/inder_regular"
+            android:textColor="#534F4F"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="#9C9999"
+            app:boxStrokeWidth="2dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:id="@+id/EditTextEmail"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            app:fontFamily="@font/inder_regular"
+            android:textColor="#534F4F"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="#9C9999"
+            app:boxStrokeWidth="2dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:id="@+id/EditTextPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#7F83ED"
+            android:text="Entrar"
+            android:fontFamily="@font/inder_regular"
+            app:cornerRadius="8dp"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/ButtonLogin"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Não possuo conta. Registrar-se"
+            android:textColor="#7F83ED"
+            app:fontFamily="@font/inder_regular"
+            android:id="@+id/ButtonSigin"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
