@@ -63,6 +63,13 @@ ActivityMainBinding binding;
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) startActivity(new Intent(this, AllChats.class));
+        if (currentUser==null) return;
+        currentUser.reload().addOnCompleteListener(task->{
+            if (task.isSuccessful()){
+                if (currentUser.getEmail() == null) return;
+                startActivity(new Intent(this, AllChats.class));
+            }
+        });
+
     }
 }

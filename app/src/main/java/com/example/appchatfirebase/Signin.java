@@ -28,6 +28,7 @@ private FirebaseAuth mAuth = FirebaseAuth.getInstance();
             String email = binding.emailEditText.getText().toString();
             String senha = binding.passwordEditText.getText().toString();
             if (email.isEmpty() || senha.isEmpty()) return;
+
             mAuth.createUserWithEmailAndPassword(email,senha)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()){
@@ -37,6 +38,7 @@ private FirebaseAuth mAuth = FirebaseAuth.getInstance();
                                     + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
+
         });
     }
 }
