@@ -12,7 +12,15 @@
         android:text="Contatos"
         app:fontFamily="@font/inder_regular"
         android:textSize="40sp"
-        android:layout_margin="6dp"/>
+        android:layout_margin="6dp"
+        android:id="@+id/title"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title"
+        tools:listitem="@layout/all_chats_list_item"/>
+
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,6 +31,32 @@
         android:fontFamily="@font/inder_regular"
         android:textSize="18sp"
         android:id="@+id/floating"
-        app:icon="@drawable/add"
+        app:icon="@drawable/ic_android_black_24dp"
         app:iconGravity="end" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/add"
+        android:id="@+id/AdicionarContatos"
+        android:layout_above="@id/floating"
+        android:layout_alignEnd="@id/floating"/>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sair"
+        android:layout_above="@id/AdicionarContatos"
+        android:layout_alignEnd="@id/AdicionarContatos"
+        android:id="@+id/LogOut"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Você ainda não possui contatos.\nAdicione um"
+        app:fontFamily="@font/inder_regular"
+        android:textSize="22dp"
+        android:textAlignment="center"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:id="@+id/NoContactsText"/>
 </RelativeLayout>

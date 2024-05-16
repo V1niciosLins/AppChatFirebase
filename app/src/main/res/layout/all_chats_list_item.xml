@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="16dp"
+    app:contentPadding="16dp"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="6dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            app:cardCornerRadius="46dp"
+            app:cardElevation="4dp"
+            android:id="@+id/Unusecard">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:id="@+id/ContactImage"
+                android:src="@drawable/ic_android_black_24dp"/>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome do contato"
+            app:fontFamily="@font/inder_regular"
+            android:id="@+id/ContactName"
+            android:layout_toEndOf="@id/Unusecard"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:layout_marginStart="6dp"/>
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

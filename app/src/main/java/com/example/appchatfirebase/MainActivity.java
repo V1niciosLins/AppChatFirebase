@@ -62,7 +62,7 @@ ActivityMainBinding binding;
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            startActivity(new Intent(MainActivity.this, AllChats.class));
+                            startActivity(new Intent(MainActivity.this, AllChats.class)); finish();
                         } else {
                             String exception = getException(task);
 
@@ -101,6 +101,7 @@ ActivityMainBinding binding;
             if (task.isSuccessful()){
                 if (currentUser.getEmail() == null) return;
                 startActivity(new Intent(this, AllChats.class));
+                finish();
             }
         });
 
