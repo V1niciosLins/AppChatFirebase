@@ -103,5 +103,14 @@
             android:textColor="#7F83ED"
             app:fontFamily="@font/inder_regular"
             android:id="@+id/ButtonSigin"/>
+
+        <ProgressBar
+            android:layout_width="46dp"
+            android:layout_height="40dp"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:id="@+id/LoginProgress"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="6dp"
+            android:visibility="gone"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

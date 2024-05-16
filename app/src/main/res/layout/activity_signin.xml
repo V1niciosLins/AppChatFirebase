@@ -26,7 +26,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordEditText"
@@ -42,5 +43,12 @@
         android:layout_height="wrap_content"
         android:text="Register"
         style="@style/Widget.MaterialComponents.Button" />
+
+    <ProgressBar
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        style="@android:style/Widget.Material.ProgressBar"
+        android:id="@+id/Progress"
+        android:visibility="gone"/>
 
 </LinearLayout>
