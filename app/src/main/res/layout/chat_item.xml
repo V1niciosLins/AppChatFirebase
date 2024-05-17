@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/textViewMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mensagem Minha"
+        android:textSize="20sp"
+        android:background="@drawable/from_me"
+        android:fontFamily="@font/inder_regular"
+        android:layout_alignParentEnd="true"
+        android:padding="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewMessage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mensagem Sua"
+        android:textSize="20sp"
+        android:background="@drawable/from_you"
+        android:fontFamily="@font/inder_regular"
+        android:layout_alignParentStart="true"
+        android:padding="16dp"/>
+</RelativeLayout>

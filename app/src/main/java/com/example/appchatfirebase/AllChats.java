@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -106,6 +107,10 @@ private ArrayList<User> list;
     @Override
     public void onBindViewHolder(@NonNull mAdap.vh holder, int position) {
         holder.nome.setText(list.get(position).getNome());
+
+        holder.Con.setOnClickListener(click->{
+            context.startActivity(new Intent(context,Chat.class));
+        });
     }
 
     public void Atualize(ArrayList<User> arrayList){
@@ -119,9 +124,11 @@ private ArrayList<User> list;
 
     public class vh extends RecyclerView.ViewHolder{
         TextView nome;
+        CardView Con;
         public vh(@NonNull View itemView) {
             super(itemView);
             nome = itemView.findViewById(R.id.ContactName);
+            Con = itemView.findViewById(R.id.Main);
         }
     }
 }
