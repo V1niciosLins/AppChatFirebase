@@ -79,6 +79,7 @@ ActivityAllChatsBinding binding;
                                 list.add(document.toObject(User.class));
                         }
                         adap.Atualize(list);
+                        if (!list.isEmpty()) binding.NoContactsText.setVisibility(View.GONE);
                     }
                 });
     }
@@ -109,7 +110,7 @@ private ArrayList<User> list;
 
     public void Atualize(ArrayList<User> arrayList){
         list = arrayList;
-        notify();
+        notifyDataSetChanged();
     }
     @Override
     public int getItemCount() {

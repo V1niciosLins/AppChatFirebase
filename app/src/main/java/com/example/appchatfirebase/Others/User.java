@@ -1,19 +1,23 @@
 package com.example.appchatfirebase.Others;
 
 public class User {
-    private final String Uid ,Nome;
+    private String uid ,nome;
 
     public User(String uid, String nome) {
-        Uid = uid;
-        Nome = nome;
+        this.uid = uid;
+        this.nome = nome;
+    }
+
+    public User() {
+        super();
     }
 
     public String getUid() {
-        return Uid;
+        return uid;
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
 }

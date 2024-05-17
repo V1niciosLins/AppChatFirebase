@@ -29,6 +29,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.StorageReference;
 
 public class Signin extends AppCompatActivity {
@@ -51,8 +52,10 @@ private FirebaseAuth mAuth = FirebaseAuth.getInstance();
             mAuth.createUserWithEmailAndPassword(email,senha)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()){
-                            fdb.collection("Users")
-                                    .add(new User(FirebaseAuth.getInstance().getUid(), nome))
+                            User user = new User(FirebaseAuth.getInstance().getUid(),nome);
+                            FirebaseFirestore.getInstance().collection("Users")
+                                    .document(FirebaseAuth.getInstance().getUid())
+                                    .set(user)
                                     .addOnCompleteListener(task1 -> {
                                         if (task1.isSuccessful()){
                                             Toast.makeText(this, "Usuário criado com sucesso", Toast.LENGTH_SHORT).show();
