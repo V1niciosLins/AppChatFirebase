@@ -13,13 +13,15 @@
         android:background="@drawable/from_me"
         android:fontFamily="@font/inder_regular"
         android:layout_alignParentEnd="true"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:maxWidth="300dp"/>
 
     <TextView
         android:id="@+id/textViewMessage2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mensagem Sua"
+        android:maxWidth="300dp"
         android:textSize="20sp"
         android:background="@drawable/from_you"
         android:fontFamily="@font/inder_regular"

@@ -1,73 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8" ?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Chat">
+    android:id="@+id/MM">
 
-    <!-- Barra superior -->
-    <com.google.android.material.appbar.AppBarLayout
+    <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        app:title="NomeDoContato"
+        android:id="@+id/Toolbar"
+        app:navigationIcon="@drawable/ic_android_black_24dp"
+        />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:title="Chat"
-            android:titleTextColor="@android:color/white"
-            app:layout_scrollFlags="scroll|enterAlways" />
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <!-- Lista de mensagens -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewMessages"
+        android:layout_below="@id/Toolbar"
+        tools:listitem="@layout/chat_item"
+        android:id="@+id/recyclerViewChat"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
-        android:padding="8dp"
-        tools:listitem="@layout/item_message" />
+        android:layout_height="match_parent"
+        android:layout_above="@id/layoutInput"
+        android:paddingStart="16.0dip"
+        android:paddingEnd="16.0dip"
+        android:paddingBottom="16.0dip" />
 
-    <!-- Área de entrada de mensagem -->
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/BVAB"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="8dp">
+        android:layout_centerInParent="true"
+        android:text="BEM VINDO AO CHAT"
+        android:textSize="24.0sp"
+        android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/layoutInput"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="?android:windowBackground"
+        android:orientation="horizontal"
+        android:padding="8.0dp">
+
+        <EditText
+            android:focusableInTouchMode="true"
+            android:id="@+id/editTextMessage"
+            android:layout_width="0.0dip"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
+            android:layout_marginEnd="8.0dip"
+            android:layout_weight="1.0"
+            android:backgroundTint="?attr/colorPrimary"
+            android:hint="Digite sua mensagem"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:minLines="1" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Digite uma mensagem">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextMessage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonSend"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Enviar"
-                app:cornerRadius="6dp"
-                app:iconPadding="8dp"
-                app:iconGravity="textStart" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-</LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            app:cornerRadius="6dp"
+            android:fontFamily="@font/inder_regular"
+            android:id="@+id/btnSendMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar"
+            android:textColor="@color/white"
+            app:backgroundTint="?attr/colorPrimary" />
+    </LinearLayout>
+</RelativeLayout>

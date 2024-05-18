@@ -109,7 +109,9 @@ private ArrayList<User> list;
         holder.nome.setText(list.get(position).getNome());
 
         holder.Con.setOnClickListener(click->{
-            context.startActivity(new Intent(context,Chat.class));
+            context.startActivity(new Intent(context,Chat.class)
+                    .putExtra("Name",list.get(position).getNome())
+                    .putExtra("UID",list.get(position).getUid()));
         });
     }
 
