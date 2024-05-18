@@ -64,26 +64,6 @@ String currentContactUid = "Error";
         binding.recyclerViewChat.setLayoutManager(new LinearLayoutManager(this));
         mAdap2 adap = new mAdap2(this, conversa);
 
-        /*FirebaseFirestore.getInstance()
-                .collection("Users")
-                .document(FirebaseAuth.getInstance().getUid())
-                .collection("Conversas")
-                .document(currentContactUid)
-                .collection("menssagens")
-                .orderBy("timestamp", Query.Direction.ASCENDING)
-                .get().addOnCompleteListener(task -> {
-                    if (task.isSuccessful()){
-                        QuerySnapshot qs = task.getResult();
-                        if (qs!=null){
-                            for (DocumentSnapshot doc: qs){
-                                conversa.add(doc.toObject(Message.class));
-                            }
-                            adap.Atualize(conversa);
-                        }
-
-
-                    }
-                });*/
 
         FirebaseFirestore.getInstance()
                 .collection("Users")
