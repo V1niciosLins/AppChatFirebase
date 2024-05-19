@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -84,6 +85,8 @@ String currentContactUid = "Error";
                                     binding.recyclerViewChat.smoothScrollToPosition(conversa.size());
                                 }
                             }
+
+                            if (!conversa.isEmpty()) binding.BVAB.setVisibility(View.GONE);
                         } else {
                             Toast.makeText(Chat.this, "É null", Toast.LENGTH_SHORT).show();
                         }
@@ -153,19 +156,20 @@ class mAdap2 extends RecyclerView.Adapter<mAdap2.vh2>{
     @Override
     public mAdap2.vh2 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.chat_item,null,false);
+
         return new vh2(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull mAdap2.vh2 holder, int position) {
         if (list.get(position).isMine()){
-            holder.Mensagem_Minha.setVisibility(View.VISIBLE);
-            holder.Mensagem_Sua.setVisibility(View.GONE);
+            holder.lay1.setVisibility(View.VISIBLE);
+            holder.lay2.setVisibility(View.GONE);
 
             holder.Mensagem_Minha.setText(list.get(position).getMensagem());
         } else {
-            holder.Mensagem_Minha.setVisibility(View.GONE);
-            holder.Mensagem_Sua.setVisibility(View.VISIBLE);
+            holder.lay1.setVisibility(View.GONE);
+            holder.lay2.setVisibility(View.VISIBLE);
 
             holder.Mensagem_Sua.setText(list.get(position).getMensagem());
         }
@@ -187,10 +191,13 @@ class mAdap2 extends RecyclerView.Adapter<mAdap2.vh2>{
 
     public class vh2 extends RecyclerView.ViewHolder{
         TextView Mensagem_Minha, Mensagem_Sua;
+        LinearLayout lay1, lay2;
         public vh2(@NonNull View itemView) {
             super(itemView);
             Mensagem_Minha = itemView.findViewById(R.id.textViewMessage);
             Mensagem_Sua = itemView.findViewById(R.id.textViewMessage2);
+            lay1 = itemView.findViewById(R.id.Lay1);
+            lay2 = itemView.findViewById(R.id.Lay2);
         }
     }
 }

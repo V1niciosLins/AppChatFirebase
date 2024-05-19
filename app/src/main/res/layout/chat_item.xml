@@ -2,29 +2,66 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:padding="2dp">
 
-    <TextView
-        android:id="@+id/textViewMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mensagem Minha"
-        android:textSize="20sp"
-        android:background="@drawable/from_me"
-        android:fontFamily="@font/inder_regular"
+    <LinearLayout
+        android:id="@+id/Lay1"
         android:layout_alignParentEnd="true"
-        android:padding="16dp"
-        android:maxWidth="300dp"/>
-
-    <TextView
-        android:id="@+id/textViewMessage2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mensagem Sua"
-        android:maxWidth="300dp"
-        android:textSize="20sp"
-        android:background="@drawable/from_you"
-        android:fontFamily="@font/inder_regular"
+        android:background="@drawable/from_me"
+        >
+
+        <TextView
+            android:maxWidth="270dp"
+            android:id="@+id/textViewMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inder_regular"
+            android:padding="10dp"
+            android:text="Mensagem Minhvdzjfvgcghgcyctydyddydytdsadhvfsadssgsdssdgsga"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:fontFamily="@font/inder_regular"
+            android:minWidth="50dp"
+            android:padding="6dp"
+            android:text="14:45"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Lay2"
         android:layout_alignParentStart="true"
-        android:padding="16dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/from_you">
+
+        <TextView
+            android:maxWidth="270dp"
+            android:id="@+id/textViewMessage2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inder_regular"
+            android:padding="10dp"
+            android:text="Mensagem Minhvdzjfvgcghgcyctydyddydytdsadhvfsadssgsdssdgsga"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewHour2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:fontFamily="@font/inder_regular"
+            android:minWidth="50dp"
+            android:padding="6dp"
+            android:text="14:45"
+            android:textSize="12sp" />
+
+    </LinearLayout>
 </RelativeLayout>
