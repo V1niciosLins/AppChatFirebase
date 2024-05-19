@@ -1,6 +1,8 @@
 package com.example.appchatfirebase;
 
 import android.content.Context;
+import android.icu.text.DateFormat;
+import android.net.Network;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,8 +34,9 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.remote.ConnectivityMonitor;
 
-import java.text.DateFormat;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -108,6 +111,7 @@ String currentContactUid = "Error";
     void enviarMenssagem(EditText editText){
 
         if (editText.getText().toString().isEmpty()) return;
+
         long timestamp = System.currentTimeMillis();
         FirebaseFirestore.getInstance()
                 .collection("Users")
@@ -117,11 +121,9 @@ String currentContactUid = "Error";
                 .collection("menssagens")
                 .add(new Message(editText.getText().toString(),true,timestamp))
                 .addOnCompleteListener(task -> {
-                   if (task.isSuccessful()){
-                       Toast.makeText(this, "Menssagem enviada", Toast.LENGTH_SHORT).show();
-                   } else {
+                   if (!task.isSuccessful())
                        Toast.makeText(this, "Menssagem não enviada.\nErro estranho.", Toast.LENGTH_SHORT).show();
-                   }
+
                 });
 
         FirebaseFirestore.getInstance()
@@ -132,11 +134,8 @@ String currentContactUid = "Error";
                 .collection("menssagens")
                 .add(new Message(editText.getText().toString(),false,timestamp))
                 .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()){
-                        Toast.makeText(this, "Menssagem Chegou no contato", Toast.LENGTH_SHORT).show();
-                    } else {
+                    if (!task.isSuccessful())
                         Toast.makeText(this, "Menssagem não chegou no contato.\nErro estranho.", Toast.LENGTH_SHORT).show();
-                    }
                 });
 
         editText.getText().clear();
@@ -162,16 +161,23 @@ class mAdap2 extends RecyclerView.Adapter<mAdap2.vh2>{
 
     @Override
     public void onBindViewHolder(@NonNull mAdap2.vh2 holder, int position) {
+        String hora = new Date(list.get(position).getTimestamp()).getHours()
+                + ":" + (new Date(list.get(position).getTimestamp()).getMinutes()>=10?
+                new Date(list.get(position).getTimestamp()).getMinutes():
+                "0"+new Date(list.get(position).getTimestamp()).getMinutes());
+
         if (list.get(position).isMine()){
             holder.lay1.setVisibility(View.VISIBLE);
             holder.lay2.setVisibility(View.GONE);
 
             holder.Mensagem_Minha.setText(list.get(position).getMensagem());
+            holder.Hour.setText(hora);
         } else {
             holder.lay1.setVisibility(View.GONE);
             holder.lay2.setVisibility(View.VISIBLE);
 
             holder.Mensagem_Sua.setText(list.get(position).getMensagem());
+            holder.Hour2.setText(hora);
         }
     }
 
@@ -190,7 +196,7 @@ class mAdap2 extends RecyclerView.Adapter<mAdap2.vh2>{
     }
 
     public class vh2 extends RecyclerView.ViewHolder{
-        TextView Mensagem_Minha, Mensagem_Sua;
+        TextView Mensagem_Minha, Mensagem_Sua, Hour, Hour2;
         LinearLayout lay1, lay2;
         public vh2(@NonNull View itemView) {
             super(itemView);
@@ -198,6 +204,8 @@ class mAdap2 extends RecyclerView.Adapter<mAdap2.vh2>{
             Mensagem_Sua = itemView.findViewById(R.id.textViewMessage2);
             lay1 = itemView.findViewById(R.id.Lay1);
             lay2 = itemView.findViewById(R.id.Lay2);
+            Hour = itemView.findViewById(R.id.textViewHour);
+            Hour2 = itemView.findViewById(R.id.textViewHour2);
         }
     }
 }
